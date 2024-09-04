@@ -1,6 +1,8 @@
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.*;
 public class Main {
     public static void main(String[] args){
 
@@ -235,7 +237,124 @@ public class Main {
                 System.out.print(cars[i][j]+" ");
             }
         }
-         */
+
+
+        //ARRAY LISTS
+        //Must use wrapper class in the <>, so you wouldn't write int you would write Integer.
+        ArrayList<String> food = new ArrayList<String>();
+
+        food.add("pizza");
+        food.add("hamburger");
+        food.add("hot-dog");
+
+        //changes element at position 0
+        food.set(0, "sushi");
+        //removes element at position 2
+        food.remove(2);
+        //clears the whole arraylist
+        food.clear();
+
+        //For arraylists we use size not length
+        for (int i=0; i<food.size(); i++) {
+            System.out.println(food.get(i));
+        }
+
+
+        //2D ARRAY LISTS (list of separate lists)
+        ArrayList<ArrayList<String>> grocerylist = new ArrayList<>();
+
+        ArrayList<String> bakeryList = new ArrayList();
+        bakeryList.add("pasta");
+        bakeryList.add("garlic bread");
+        bakeryList.add("donuts");
+
+        ArrayList<String> produceList = new ArrayList();
+        produceList.add("tomatoes");
+        produceList.add("zucchini");
+        produceList.add("peppers");
+
+        ArrayList<String> drinksList = new ArrayList();
+        drinksList.add("soda");
+        drinksList.add("coffee");
+
+        grocerylist.add(bakeryList);
+
+        grocerylist.add(produceList);
+
+        grocerylist.add(drinksList);
+
+        //.get(0).get(1) Gets the second element of the first Array List
+        System.out.println(grocerylist.get(0).get(1));
+
+
+        //FOR-EACH LOOP
+        // traversing technique to iterate through the elements in an array/collection
+        //less steps, more readable, less flexible
+
+        //String[] animals = {"cat","dog","rat","bird"};
+
+        //for(String i : animals) {
+            //System.out.println(i);
+
+        ArrayList<String> animals = new ArrayList<String>();
+
+        animals.add("cat");
+        animals.add("dog");
+
+        for(String i : animals) {
+            System.out.println(i);
+        }
+
+
+        //METHODS (method hello written outside of main)
+        String name = "Victor";
+        int age = 21;
+        hello(name,age);
+        //If your method returns a value you can't write void, instead you write the data type
+        //Ex: static int
+
+
+        //OVERLOADED METHODS
+        //Share the same name but have different parameters (methods are outside of main, look at them)
+        // if two methods have the same name but vary in data type and/or number of arguments, they will be different
+        int x = add(1,2, 3);
+
+        System.out.println(x);
+
+
+        //PRINTF
+
+        //value appears where the % is
+        //d is decimal numbers (int)
+        System.out.printf("This is a format string %d",123);
+
+        boolean myBoolean = true;
+        char myChar = '@';
+        String myString = "Victor";
+        int myInt = 50;
+        double myDouble = 1000;
+
+
+        System.out.printf("%b",myBoolean);
+        System.out.printf("%c",myChar);
+        System.out.printf("%s",myString);;
+        System.out.printf("%f",myDouble);
+
+        //flags for printf
+        // - : left-justify
+        // + : output a plus or minus sign for a numeric value
+        // 0 : numeric values are zero-padded
+        // , : comma grouping separator if numbers > 1000
+
+
+        //FINAL KEYWORD
+
+        //can no longer alter the value of a variable with final
+        //when using final it's common practice to have the variable letters all upper-case
+        final double PI = 3.14159;
+
+        PI = 4;
+        */
 
 
 
@@ -243,5 +362,19 @@ public class Main {
 
 
 
+
+
+    }
+    static void hello(String myName,int myAge) {
+        System.out.println("Hello "+myName);
+        System.out.println("You are "+myAge);
+    }
+    static int add(int a, int b) {
+        System.out.println("This is overloaded method #1");
+        return a+b;
+    }
+    static int add(int a, int b, int c) {
+        System.out.println("This is overloaded method #2");
+        return a+b+c;
     }
 }
